@@ -1,0 +1,59 @@
+<!--pages/compendium/compendium.wxml-->
+<view class="page">
+  <!-- 搜索栏 -->
+  <view class="search-bar">
+    <input class="search-input" placeholder="搜索精灵名称或编号" value="{{keyword}}"
+           bindinput="onSearchInput" confirm-type="search" />
+  </view>
+
+  <!-- 属性筛选 -->
+  <scroll-view class="attr-filter" scroll-x enable-flex>
+    <view class="attr-item {{activeAttr === item ? 'active' : ''}}"
+          wx:for="{{attributes}}" wx:key="*this"
+          bindtap="setAttribute" data-attr="{{item}}">
+      {{item || '全部'}}
+    </view>
+  </scroll-view>
+
+  <!-- 结果统计 -->
+  <view class="result-info" wx:if="{{total > 0}}">
+    <text>共 {{total}} 只精灵</text>
+  </view>
+
+  <!-- 精灵列表 -->
+  <view class="spirit-list">
+    <view class="spirit-row" wx:for="{{items}}" wx:key="spirit_id"
+          bindtap="goDetail" data-id="{{item.spirit_id}}">
+      <!-- 头像 -->
+      <view class="spirit-avatar">
+        <image class="spirit-img" src="{{item.image}}" mode="aspectFit"
+               wx:if="{{item.image}}" />
+        <text class="spirit-placeholder" wx:else>🐾</text>
+      </view>
+
+      <!-- 信息 -->
+      <view class="spirit-info">
+        <view class="spirit-name-row">
+          <image class="attr-icon-small" src="/images/attr/{{item.primary_attribute}}.png"
+                 wx:if="{{item.primary_attribute}}" mode="aspectFit" />
+          <text class="spirit-name">{{item.base_name}}</text>
+          <text class="shiny-dot" wx:if="{{item.has_shiny_variant}}">✨</text>
+        </view>
+        <text class="spirit-no">{{item.spirit_no}}</text>
+        <text class="spirit-range" wx:if="{{item.egg_groups && item.egg_groups.length > 0}}">
+          {{item.egg_groups[0]}}{{item.egg_groups[1] ? ' / ' + item.egg_groups[1] : ''}}
+        </text>
+      </view>
+
+      <!-- 箭头 -->
+      <text class="arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 加载状态 -->
+  <view class="load-more">
+    <text wx:if="{{loading}}">加载中...</text>
+    <text wx:elif="{{!hasMore && items.length > 0}}">已加载全部 ({{total}})</text>
+    <text wx:elif="{{!loading && items.length === 0 && total === 0}}">没有找到匹配的精灵</text>
+  </view>
+</view>

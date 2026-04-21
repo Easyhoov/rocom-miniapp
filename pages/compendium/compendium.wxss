@@ -1,0 +1,147 @@
+/* pages/compendium/compendium.wxss */
+
+/* 搜索栏 */
+.search-bar {
+  margin-bottom: 20rpx;
+}
+
+.search-input {
+  width: 100%;
+  padding: 24rpx 28rpx;
+  background: #fff;
+  border-radius: 24rpx;
+  font-size: 28rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, .04);
+  box-sizing: border-box;
+}
+
+/* 属性筛选 */
+.attr-filter {
+  white-space: nowrap;
+  margin-bottom: 20rpx;
+}
+
+.attr-item {
+  display: inline-block;
+  padding: 12rpx 24rpx;
+  margin-right: 12rpx;
+  font-size: 26rpx;
+  border-radius: 20rpx;
+  border: 2rpx solid #e8e8e8;
+  background: #fff;
+  color: #666;
+}
+
+.attr-item.active {
+  background: #667eea;
+  border-color: #667eea;
+  color: #fff;
+}
+
+/* 结果统计 */
+.result-info {
+  font-size: 24rpx;
+  color: #999;
+  margin-bottom: 16rpx;
+}
+
+/* 精灵列表 — 卡片行 */
+.spirit-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.spirit-row {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 24rpx;
+  padding: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, .04);
+}
+
+.spirit-row:active {
+  background: #f8f9ff;
+}
+
+/* 头像 */
+.spirit-avatar {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 20rpx;
+  background: #f8f9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-right: 24rpx;
+  overflow: hidden;
+}
+
+.spirit-img {
+  width: 72rpx;
+  height: 72rpx;
+}
+
+.spirit-placeholder {
+  font-size: 40rpx;
+}
+
+/* 信息 */
+.spirit-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.spirit-name-row {
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.spirit-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333;
+}
+
+.attr-icon-small {
+  width: 32rpx;
+  height: 32rpx;
+  flex-shrink: 0;
+}
+
+.shiny-dot {
+  font-size: 24rpx;
+}
+
+.spirit-no {
+  font-size: 22rpx;
+  color: #bbb;
+  display: block;
+  margin-top: 4rpx;
+}
+
+.spirit-range {
+  font-size: 22rpx;
+  color: #999;
+  display: block;
+  margin-top: 4rpx;
+}
+
+/* 箭头 */
+.arrow {
+  font-size: 40rpx;
+  color: #ddd;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
+
+/* 加载状态 */
+.load-more {
+  text-align: center;
+  padding: 40rpx 0;
+  font-size: 24rpx;
+  color: #ccc;
+}

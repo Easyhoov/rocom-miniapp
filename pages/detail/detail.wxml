@@ -1,0 +1,106 @@
+<!--pages/detail/detail.wxml-->
+<view class="page">
+  <!-- 骨架屏 -->
+  <view wx:if="{{loading}}" class="skeleton">
+    <view class="sk-avatar"></view>
+    <view class="sk-line w60"></view>
+    <view class="sk-line w40"></view>
+    <view class="sk-block"></view>
+  </view>
+
+  <!-- 精灵内容 -->
+  <block wx:elif="{{spirit}}">
+    <!-- 精灵大图 -->
+    <view class="hero" bindtap="previewImage" data-url="{{spirit.image}}">
+      <image class="hero-img" src="{{spirit.image}}" mode="aspectFit"
+             wx:if="{{spirit.image}}" />
+      <view class="hero-placeholder" wx:else>🐾</view>
+      <!-- 异色标记 -->
+      <view class="shiny-badge" wx:if="{{spirit.has_shiny_variant}}">✨ 异色</view>
+    </view>
+
+    <!-- 基本信息 -->
+    <view class="card">
+      <view class="name-row">
+        <text class="name">{{spirit.base_name}}</text>
+        <image class="attr-icon-detail" src="/images/attr/{{spirit.primary_attribute}}.png"
+               wx:if="{{spirit.primary_attribute}}" mode="aspectFit" />
+        <image class="attr-icon-detail sub" src="/images/attr/{{spirit.secondary_attribute}}.png"
+               wx:if="{{spirit.secondary_attribute}}" mode="aspectFit" />
+      </view>
+      <text class="form-name" wx:if="{{spirit.form_name}}">{{spirit.form_name}}</text>
+      <text class="spirit-no">{{spirit.spirit_no}}</text>
+
+      <!-- 特性 -->
+      <view class="trait" wx:if="{{spirit.trait_name}}">
+        <text class="trait-label">特性</text>
+        <text class="trait-name">{{spirit.trait_name}}</text>
+        <text class="trait-effect" wx:if="{{spirit.trait_effect}}">{{spirit.trait_effect}}</text>
+      </view>
+    </view>
+
+    <!-- 数值 -->
+    <view class="card">
+      <view class="stat-row">
+        <view class="stat-item">
+          <text class="stat-label">身高</text>
+          <text class="stat-value">{{spirit.height_text || '-'}}</text>
+        </view>
+        <view class="stat-item">
+          <text class="stat-label">体重</text>
+          <text class="stat-value">{{spirit.weight_text || '-'}}</text>
+        </view>
+      </view>
+
+      <!-- 种族值 -->
+      <view class="race-section" wx:if="{{spirit.race_total}}">
+        <text class="section-title">种族值 ({{spirit.race_total}})</text>
+        <view class="race-bars">
+          <view class="race-bar" wx:for="{{raceBars}}" wx:key="label">
+            <text class="race-label">{{item.label}}</text>
+            <view class="race-track">
+              <view class="race-fill" style="width: {{item.percent}}%; background: {{item.color}}"></view>
+            </view>
+            <text class="race-num">{{item.value}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 蛋组 -->
+    <view class="card" wx:if="{{spirit.egg_groups && spirit.egg_groups.length > 0}}">
+      <text class="section-title">蛋组</text>
+      <view class="egg-groups">
+        <text class="egg-tag" wx:for="{{spirit.egg_groups}}" wx:key="*this">{{item}}</text>
+      </view>
+    </view>
+
+    <!-- 进化链 -->
+    <view class="card" wx:if="{{spirit.evolution_chain && spirit.evolution_chain.length > 1}}">
+      <text class="section-title">进化链</text>
+      <view class="evo-chain">
+        <view class="evo-item" wx:for="{{spirit.evolution_chain}}" wx:key="spirit_id"
+              bindtap="goEvolution" data-id="{{item.spirit_id}}">
+          <image class="evo-img" src="{{item.image}}" mode="aspectFit" wx:if="{{item.image}}" />
+          <text class="evo-name">{{item.display_name || item.base_name}}</text>
+          <text class="evo-level" wx:if="{{item.evolution_level_text}}">
+            {{item.evolution_level_text}}
+          </text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 描述 -->
+    <view class="card" wx:if="{{spirit.description}}">
+      <text class="section-title">描述</text>
+      <text class="description">{{spirit.description}}</text>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="actions">
+      <button class="btn-primary" bindtap="queryBySpirit">
+        🔍 用这个精灵查孵蛋
+      </button>
+    </view>
+  </block>
+</view>

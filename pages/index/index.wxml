@@ -1,0 +1,108 @@
+<!--pages/index/index.wxml-->
+<view class="page">
+  <!-- 头部 -->
+  <view class="header">
+    <text class="title">🥚 孵蛋查询</text>
+    <text class="subtitle">洛克王国：世界</text>
+  </view>
+
+  <!-- 输入卡片 -->
+  <view class="card {{shake ? 'shake' : ''}}">
+    <view class="input-row">
+      <view class="input-group">
+        <text class="label">身高 (m)</text>
+        <input class="input" type="digit" placeholder="0.24" value="{{height}}"
+               bindinput="onHeightInput" maxlength="6" />
+      </view>
+      <view class="input-group">
+        <text class="label">体重 (kg)</text>
+        <input class="input" type="digit" placeholder="1.600" value="{{weight}}"
+               bindinput="onWeightInput" maxlength="8" />
+      </view>
+    </view>
+
+    <!-- 蛋类型筛选 — 和原项目一致 -->
+    <view class="filter-row">
+      <view class="tag {{eggFilter === 0 ? 'active' : ''}}" bindtap="setFilter" data-value="0">
+        🥚 神奇的蛋
+      </view>
+      <view class="tag {{eggFilter === 1 ? 'active' : ''}}" bindtap="setFilter" data-value="1">
+        ✨ 炫彩蛋
+      </view>
+      <view class="tag {{eggFilter === null ? 'active' : ''}}" bindtap="setFilter" data-value="">
+        📦 不限类型
+      </view>
+    </view>
+
+    <!-- R 值说明入口 -->
+    <view class="r-hint" bindtap="showRTip">
+      <text class="r-hint-text">📊 R值是什么？</text>
+    </view>
+
+    <!-- 查询按钮 -->
+    <button class="btn-primary" bindtap="doQuery" disabled="{{loading}}">
+      {{loading ? '查询中...' : '查询'}}
+    </button>
+  </view>
+
+  <!-- 结果区域 — 原项目有 3 个 tab 可再筛 -->
+  <view class="card" wx:if="{{queried}}">
+    <!-- 结果 tab -->
+    <view class="tabs">
+      <view class="tab {{resultTab === 'all' ? 'on' : ''}}" bindtap="setResultTab" data-tab="all">
+        全部 <text class="tab-n">{{total}}</text>
+      </view>
+      <view class="tab {{resultTab === 'normal' ? 'on' : ''}}" bindtap="setResultTab" data-tab="normal">
+        🥚 神奇 <text class="tab-n">{{normalCount}}</text>
+      </view>
+      <view class="tab {{resultTab === 'special' ? 'on' : ''}}" bindtap="setResultTab" data-tab="special">
+        ✨ 炫彩 <text class="tab-n">{{preciousCount}}</text>
+      </view>
+    </view>
+
+    <!-- R 值 -->
+    <view class="r-display">你的 R 值: {{userR}}</view>
+
+    <!-- 结果网格 -->
+    <view class="result-grid" wx:if="{{filteredResults.length > 0}}">
+      <view class="pet-card" wx:for="{{filteredResults}}" wx:key="name"
+            bindtap="goDetail" data-spirit-id="{{item.spirit_id}}">
+        <view class="pet-icon-wrap" style="background: {{item.egg_type_color || '#f0f0ff'}}">
+          <image class="pet-icon" src="{{item.image}}" mode="aspectFit"
+                 wx:if="{{item.image}}" />
+          <text class="pet-emoji" wx:else>{{item.egg_type_icon || '🥚'}}</text>
+        </view>
+        <text class="pet-name">{{item.name}}</text>
+        <view class="pet-tier-row">
+          <text class="pet-r-diff">R差 {{item.r_diff}}</text>
+          <text class="pet-tier {{item.match_tier}}">
+            {{item.match_tier === 'exact' ? '完美' : item.probability + '%'}}
+          </text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空结果 -->
+    <view class="empty" wx:elif="{{queried}}">
+      <text class="empty-icon">🐣</text>
+      <text class="empty-text">暂无结果</text>
+    </view>
+  </view>
+
+  <!-- R 值说明弹窗 -->
+  <view class="tip {{showRTip ? 'on' : ''}}" bindtap="hideRTip">
+    <view class="tip-box" catchtap="">
+      <text class="tip-title">📊 R值说明</text>
+      <text class="tip-body">
+        🎯 R值公式 — R = 体重(kg) ÷ 身高(m)
+        📏 差值越小表示越接近你的精灵属性，匹配概率越高
+      </text>
+      <button class="tip-btn" bindtap="hideRTip">我知道了</button>
+    </view>
+  </view>
+
+  <!-- 页脚 -->
+  <view class="footer">
+    <text class="footer-text">数据 RocomUID</text>
+  </view>
+</view>

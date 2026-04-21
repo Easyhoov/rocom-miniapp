@@ -1,0 +1,34 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/compendium/compendium",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#667eea",
+    "navigationBarTitleText": "孵蛋查询",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#e8f0fe"
+  },
+  "tabBar": {
+    "color": "#999",
+    "selectedColor": "#667eea",
+    "backgroundColor": "#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "查询",
+        "iconPath": "images/tab-query.png",
+        "selectedIconPath": "images/tab-query-active.png"
+      },
+      {
+        "pagePath": "pages/compendium/compendium",
+        "text": "图鉴",
+        "iconPath": "images/tab-list.png",
+        "selectedIconPath": "images/tab-list-active.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
