@@ -109,18 +109,18 @@
   margin-bottom: 16rpx;
 }
 
-/* 结果网格 — 3列 */
+/* 结果网格 — 2列 */
 .result-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 12rpx;
+  gap: 16rpx;
 }
 
 .pet-card {
-  width: calc(33.33% - 8rpx);
+  width: calc(50% - 8rpx);
   background: #f8f9ff;
-  border-radius: 20rpx;
-  padding: 20rpx 8rpx 16rpx;
+  border-radius: 24rpx;
+  padding: 24rpx 16rpx 20rpx;
   text-align: center;
   border: 3rpx solid transparent;
   transition: 0.15s;
@@ -131,10 +131,10 @@
 }
 
 .pet-icon-wrap {
-  width: 72rpx;
-  height: 72rpx;
+  width: 96rpx;
+  height: 96rpx;
   border-radius: 50%;
-  margin: 0 auto 8rpx;
+  margin: 0 auto 12rpx;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -142,16 +142,16 @@
 }
 
 .pet-icon {
-  width: 56rpx;
-  height: 56rpx;
+  width: 76rpx;
+  height: 76rpx;
 }
 
 .pet-emoji {
-  font-size: 32rpx;
+  font-size: 40rpx;
 }
 
 .pet-name {
-  font-size: 22rpx;
+  font-size: 26rpx;
   font-weight: 600;
   color: #333;
   white-space: nowrap;
@@ -169,12 +169,12 @@
 }
 
 .pet-r-diff {
-  font-size: 16rpx;
+  font-size: 20rpx;
   color: #bbb;
 }
 
 .pet-tier {
-  font-size: 18rpx;
+  font-size: 22rpx;
   font-weight: 500;
 }
 
