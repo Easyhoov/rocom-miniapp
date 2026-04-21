@@ -1,19 +1,19 @@
-/* pages/compendium/compendium.wxss — 洛克王国：世界 风格 */
+/* pages/compendium/compendium.wxss — 匹配设计稿 */
 
 /* 搜索栏 */
 .search-bar {
-  margin-bottom: 20rpx;
+  margin-bottom: 16rpx;
 }
 
 .search-input {
   width: 100%;
-  padding: 22rpx 28rpx;
+  padding: 20rpx 24rpx;
   background: #fff;
   border-radius: 24rpx;
   font-size: 28rpx;
   box-shadow: 0 2rpx 12rpx rgba(180, 140, 80, 0.06);
   box-sizing: border-box;
-  border: 3rpx solid transparent;
+  border: 2rpx solid transparent;
   color: #2D2016;
 }
 
@@ -22,57 +22,53 @@
 }
 
 .search-input::placeholder {
-  color: #C4A872;
+  color: #D4C4A8;
 }
 
 /* 属性筛选 */
 .attr-filter {
   white-space: nowrap;
-  margin-bottom: 20rpx;
+  margin-bottom: 16rpx;
+  padding: 0 4rpx;
 }
 
 .attr-item {
   display: inline-block;
-  padding: 12rpx 24rpx;
-  margin-right: 12rpx;
-  font-size: 26rpx;
+  padding: 10rpx 22rpx;
+  margin-right: 10rpx;
+  font-size: 24rpx;
   border-radius: 20rpx;
   border: 2rpx solid #F0E6D6;
-  background: #fff;
+  background: #FFFBF5;
   color: #8B7355;
 }
 
 .attr-item.active {
-  background: #FFB347;
+  background: linear-gradient(135deg, #FFB347, #FFCC80);
   border-color: #FFB347;
-  color: #fff;
+  color: #5D3A00;
+  font-weight: 600;
+  box-shadow: 0 2rpx 8rpx rgba(255, 179, 71, 0.2);
 }
 
-/* 结果统计 */
-.result-info {
-  font-size: 24rpx;
-  color: #8B7355;
-  margin-bottom: 16rpx;
-}
-
-/* 精灵列表 — 卡片行 */
+/* 精灵卡片 */
 .spirit-list {
   display: flex;
   flex-direction: column;
   gap: 16rpx;
 }
 
-.spirit-row {
+.spirit-card {
   display: flex;
   align-items: center;
   background: #fff;
   border-radius: 24rpx;
   padding: 24rpx;
   box-shadow: 0 2rpx 12rpx rgba(180, 140, 80, 0.06);
-  border: 2rpx solid rgba(180, 140, 80, 0.05);
+  border: 2rpx solid rgba(255, 200, 100, 0.08);
 }
 
-.spirit-row:active {
+.spirit-card:active {
   background: #FFFCF7;
   transform: scale(0.99);
 }
@@ -82,13 +78,13 @@
   width: 96rpx;
   height: 96rpx;
   border-radius: 50%;
-  background: linear-gradient(135deg, #FFF3D6, #FFE8CC);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
   margin-right: 24rpx;
   overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.06);
 }
 
 .spirit-img {
@@ -114,14 +110,17 @@
 
 .spirit-name {
   font-size: 30rpx;
-  font-weight: 600;
+  font-weight: 700;
   color: #2D2016;
 }
 
-.attr-icon-small {
-  width: 32rpx;
-  height: 32rpx;
-  flex-shrink: 0;
+.attr-badge {
+  font-size: 20rpx;
+  padding: 2rpx 12rpx;
+  border-radius: 8rpx;
+  background: #FFF3D6;
+  color: #8B6914;
+  font-weight: 500;
 }
 
 .shiny-dot {
@@ -145,7 +144,7 @@
 /* 箭头 */
 .arrow {
   font-size: 40rpx;
-  color: #D0D8E0;
+  color: #D4C4A8;
   margin-left: 16rpx;
   flex-shrink: 0;
 }
@@ -166,7 +165,7 @@
 
 .error-text {
   font-size: 28rpx;
-  color: #E74C3C;
+  color: #FF6B42;
   display: block;
   margin-bottom: 20rpx;
 }
@@ -174,8 +173,9 @@
 .retry-btn {
   display: inline-block;
   padding: 16rpx 40rpx;
-  background: #FFB347;
+  background: linear-gradient(135deg, #FF8C42, #FFB347);
   color: #fff;
   border-radius: 20rpx;
   font-size: 26rpx;
+  font-weight: 600;
 }
