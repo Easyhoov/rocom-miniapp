@@ -11,7 +11,7 @@ const BASE_URL = 'https://rocom.online'
 /**
  * 基础请求
  */
-const request = (options) => {
+const request = (options, retryCount = 1) => {
   return new Promise((resolve, reject) => {
     wx.request({
       url: `${BASE_URL}${options.url}`,
@@ -33,7 +33,14 @@ const request = (options) => {
         }
       },
       fail(err) {
-        reject({ code: -1, message: '网络异常，请检查网络连接' })
+        if (retryCount > 0) {
+          console.warn('[Request] 网络异常，重试中...', options.url)
+          setTimeout(() => {
+            request(options, retryCount - 1).then(resolve).catch(reject)
+          }, 500)
+        } else {
+          reject({ code: -1, message: '网络异常，请检查网络连接' })
+        }
       }
     })
   })
