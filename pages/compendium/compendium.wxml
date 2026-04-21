@@ -54,7 +54,7 @@
   <view class="load-more">
     <text wx:if="{{loading}}">加载中...</text>
     <text wx:elif="{{!hasMore && items.length > 0}}">已加载全部 ({{total}})</text>
-    <text wx:elif="{{!loading <text wx:elif="{{!loading && items.length === 0 && total === 0}}">没有找到匹配的精灵</text><text wx:elif="{{!loading && items.length === 0 && total === 0}}">没有找到匹配的精灵</text> items.length === 0 <text wx:elif="{{!loading && items.length === 0 && total === 0}}">没有找到匹配的精灵</text><text wx:elif="{{!loading && items.length === 0 && total === 0}}">没有找到匹配的精灵</text> total === 0}}">没有找到匹配的精灵</text>
+    <text wx:elif="{{!loading && items.length === 0 && total === 0}}">没有找到匹配的精灵</text>
     <view wx:elif="{{loadError}}" class="error-retry">
       <text class="error-text">加载失败</text>
       <view class="retry-btn" bindtap="onPullDownRefresh">点击重试</view>
