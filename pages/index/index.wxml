@@ -11,12 +11,12 @@
     <view class="input-row">
       <view class="input-group">
         <text class="label">身高 (m)</text>
-        <input class="input" type="digit" placeholder="例如 0.24" value="{{height}}"
+        <input class="input" type="digit" placeholder="0.24" value="{{height}}"
                bindinput="onHeightInput" />
       </view>
       <view class="input-group">
         <text class="label">体重 (kg)</text>
-        <input class="input" type="digit" placeholder="例如 1.600" value="{{weight}}"
+        <input class="input" type="digit" placeholder="1.600" value="{{weight}}"
                bindinput="onWeightInput" />
       </view>
     </view>
