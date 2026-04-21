@@ -1,77 +1,91 @@
-/* 全局样式 — 沿用 Web 版紫蓝主题 */
+/* 洛克王国孵蛋查询 — 融合游戏风格 + 竞品最佳实践 */
+
 page {
   font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  background: linear-gradient(180deg, #e8f0fe 0%, #f5f0ff 50%, #fff 100%);
+  background: linear-gradient(180deg, #FFF8EE 0%, #FFF5E6 40%, #FFFFFF 100%);
   min-height: 100vh;
   box-sizing: border-box;
-  padding: 32rpx;
-  padding-bottom: calc(32rpx + env(safe-area-inset-bottom));
-  color: #1a1a2e;
+  padding: 24rpx;
+  padding-bottom: calc(120rpx + env(safe-area-inset-bottom));
+  color: #2D2016;
   font-size: 28rpx;
 }
 
-/* 通用卡片 */
+/* 主卡片 — 暖白奶油感 */
 .card {
-  background: #fff;
+  background: #FFFFFF;
   border-radius: 32rpx;
-  padding: 40rpx;
-  box-shadow: 0 4rpx 24rpx rgba(0, 0, 0, .06);
+  padding: 32rpx;
+  box-shadow: 0 4rpx 24rpx rgba(180, 140, 80, 0.08);
   margin-bottom: 24rpx;
+  border: 2rpx solid rgba(255, 200, 100, 0.12);
 }
 
-/* 主按钮 */
+/* 主按钮 — 橙金渐变（融合 灵蛋所的CTA + 破壳梦的金色） */
 .btn-primary {
   width: 100%;
   padding: 28rpx;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+  background: linear-gradient(135deg, #FF8C42, #FFB347);
   color: #fff;
   border: none;
-  border-radius: 24rpx;
+  border-radius: 28rpx;
   font-size: 32rpx;
-  font-weight: 600;
+  font-weight: 700;
   text-align: center;
+  letter-spacing: 4rpx;
+  box-shadow: 0 6rpx 20rpx rgba(255, 140, 66, 0.3);
 }
 
 .btn-primary:active {
-  opacity: 0.85;
+  opacity: 0.9;
+  transform: scale(0.97);
 }
 
 .btn-primary[disabled] {
   opacity: 0.5;
+  box-shadow: none;
 }
 
-/* 输入框 */
+/* 输入框 — 奶油底 + 金色聚焦 */
 .input {
   width: 100%;
-  padding: 24rpx;
-  border: 3rpx solid #e8e8e8;
+  padding: 22rpx 24rpx;
+  border: 3rpx solid #F0E6D6;
   border-radius: 20rpx;
   font-size: 34rpx;
-  font-weight: 500;
-  background: #fafafa;
+  font-weight: 600;
+  background: #FFFBF5;
   box-sizing: border-box;
+  color: #2D2016;
 }
 
 .input:focus {
-  border-color: #667eea;
+  border-color: #FFB347;
   background: #fff;
+  box-shadow: 0 0 0 4rpx rgba(255, 179, 71, 0.15);
 }
 
-/* 标签 */
+.input::placeholder {
+  color: #D4C4A8;
+}
+
+/* 标签 — 柔和圆角胶囊 */
 .tag {
-  padding: 14rpx 28rpx;
+  padding: 14rpx 24rpx;
   border-radius: 40rpx;
   font-size: 26rpx;
-  border: 3rpx solid #e8e8e8;
-  background: #fff;
-  color: #666;
+  border: 3rpx solid #F0E6D6;
+  background: #FFFBF5;
+  color: #8B7355;
   display: inline-block;
 }
 
 .tag.active {
-  border-color: #667eea;
-  background: #667eea;
-  color: #fff;
+  border-color: #FFB347;
+  background: linear-gradient(135deg, #FFB347, #FFCC80);
+  color: #5D3A00;
+  font-weight: 600;
+  box-shadow: 0 4rpx 12rpx rgba(255, 179, 71, 0.25);
 }
 
 /* 属性图标 */
@@ -81,7 +95,19 @@ page {
   display: inline-block;
 }
 
-/* 安全区域适配 */
+/* 安全区域 */
 .safe-bottom {
   padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* 页脚 */
+.footer {
+  text-align: center;
+  padding: 24rpx 0 12rpx;
+}
+
+.footer-text {
+  font-size: 20rpx;
+  color: #C4A872;
+  letter-spacing: 2rpx;
 }

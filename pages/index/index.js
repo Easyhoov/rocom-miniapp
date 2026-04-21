@@ -41,6 +41,13 @@ Page({
     })
   },
 
+  // 快捷填参
+  quickFill(e) {
+    const h = e.currentTarget.dataset.h
+    const w = e.currentTarget.dataset.w
+    this.setData({ height: String(h), weight: String(w) })
+  },
+
   // 结果 tab 切换
   setResultTab(e) {
     const tab = e.currentTarget.dataset.tab

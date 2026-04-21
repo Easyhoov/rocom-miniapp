@@ -1,4 +1,4 @@
-/* pages/detail/detail.wxss */
+/* pages/detail/detail.wxss — 洛克王国：世界 风格 */
 
 /* 骨架屏 */
 .skeleton {
@@ -8,14 +8,14 @@
 .sk-avatar {
   width: 300rpx;
   height: 300rpx;
-  background: #f0f0f0;
+  background: linear-gradient(135deg, #FFF3D6, #FFE8CC);
   border-radius: 32rpx;
   margin: 0 auto 32rpx;
 }
 
 .sk-line {
   height: 28rpx;
-  background: #f0f0f0;
+  background: #FFF5E6;
   border-radius: 14rpx;
   margin-bottom: 16rpx;
 }
@@ -25,7 +25,7 @@
 
 .sk-block {
   height: 200rpx;
-  background: #f0f0f0;
+  background: #FFF5E6;
   border-radius: 24rpx;
   margin-top: 32rpx;
 }
@@ -49,7 +49,7 @@
   line-height: 300rpx;
   text-align: center;
   font-size: 120rpx;
-  background: #f8f9ff;
+  background: linear-gradient(135deg, #FFF3D6, #FFE8CC);
   border-radius: 32rpx;
   margin: 0 auto;
 }
@@ -58,12 +58,13 @@
   position: absolute;
   top: 20rpx;
   right: 40rpx;
-  background: linear-gradient(135deg, #ffd700, #ffaa00);
+  background: linear-gradient(135deg, #FFB74D, #FF9800);
   color: #fff;
   font-size: 22rpx;
-  padding: 6rpx 16rpx;
-  border-radius: 16rpx;
+  padding: 8rpx 20rpx;
+  border-radius: 20rpx;
   font-weight: 600;
+  box-shadow: 0 4rpx 12rpx rgba(255, 183, 77, 0.3);
 }
 
 /* 名字行 */
@@ -77,7 +78,7 @@
 .name {
   font-size: 40rpx;
   font-weight: 700;
-  color: #1a1a2e;
+  color: #2D2016;
 }
 
 .attr-icon-detail {
@@ -92,13 +93,13 @@
 
 .form-name {
   font-size: 26rpx;
-  color: #999;
+  color: #8B7355;
   display: block;
 }
 
 .spirit-no {
   font-size: 24rpx;
-  color: #bbb;
+  color: #C4A872;
   display: block;
   margin-top: 4rpx;
 }
@@ -107,24 +108,24 @@
 .trait {
   margin-top: 20rpx;
   padding-top: 20rpx;
-  border-top: 1rpx solid #f0f0f0;
+  border-top: 2rpx solid #FFF5E6;
 }
 
 .trait-label {
   font-size: 22rpx;
-  color: #999;
+  color: #C4A872;
 }
 
 .trait-name {
   font-size: 28rpx;
   font-weight: 600;
-  color: #333;
+  color: #FFB347;
   margin-left: 8rpx;
 }
 
 .trait-effect {
   font-size: 24rpx;
-  color: #666;
+  color: #8B7355;
   display: block;
   margin-top: 8rpx;
   line-height: 1.6;
@@ -143,14 +144,14 @@
 
 .stat-label {
   font-size: 22rpx;
-  color: #999;
+  color: #C4A872;
   display: block;
 }
 
 .stat-value {
   font-size: 28rpx;
   font-weight: 600;
-  color: #333;
+  color: #2D2016;
   display: block;
   margin-top: 4rpx;
 }
@@ -159,7 +160,7 @@
 .section-title {
   font-size: 28rpx;
   font-weight: 600;
-  color: #333;
+  color: #2D2016;
   display: block;
   margin-bottom: 16rpx;
 }
@@ -179,14 +180,14 @@
 .race-label {
   width: 80rpx;
   font-size: 22rpx;
-  color: #888;
+  color: #8B7355;
   text-align: right;
 }
 
 .race-track {
   flex: 1;
   height: 16rpx;
-  background: #f0f0f0;
+  background: #FFF5E6;
   border-radius: 8rpx;
   overflow: hidden;
 }
@@ -194,14 +195,14 @@
 .race-fill {
   height: 100%;
   border-radius: 8rpx;
-  transition: width 0.3s;
+  transition: width 0.6s ease;
 }
 
 .race-num {
   width: 50rpx;
   font-size: 22rpx;
-  color: #666;
-  font-weight: 500;
+  color: #FFB347;
+  font-weight: 600;
 }
 
 /* 蛋组 */
@@ -214,9 +215,10 @@
 .egg-tag {
   font-size: 24rpx;
   padding: 8rpx 20rpx;
-  background: #f0f0ff;
-  color: #667eea;
+  background: #FFF3D6;
+  color: #FFB347;
   border-radius: 16rpx;
+  font-weight: 500;
 }
 
 /* 进化链 */
@@ -245,7 +247,7 @@
 
 .evo-name {
   font-size: 22rpx;
-  color: #333;
+  color: #2D2016;
   font-weight: 500;
   display: block;
   margin-top: 4rpx;
@@ -253,7 +255,7 @@
 
 .evo-level {
   font-size: 18rpx;
-  color: #667eea;
+  color: #FFB347;
   display: block;
   margin-top: 2rpx;
 }
@@ -261,7 +263,7 @@
 /* 描述 */
 .description {
   font-size: 26rpx;
-  color: #666;
+  color: #8B7355;
   line-height: 1.8;
 }
 

@@ -1,4 +1,4 @@
-/* pages/compendium/compendium.wxss */
+/* pages/compendium/compendium.wxss — 洛克王国：世界 风格 */
 
 /* 搜索栏 */
 .search-bar {
@@ -7,12 +7,22 @@
 
 .search-input {
   width: 100%;
-  padding: 24rpx 28rpx;
+  padding: 22rpx 28rpx;
   background: #fff;
   border-radius: 24rpx;
   font-size: 28rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, .04);
+  box-shadow: 0 2rpx 12rpx rgba(180, 140, 80, 0.06);
   box-sizing: border-box;
+  border: 3rpx solid transparent;
+  color: #2D2016;
+}
+
+.search-input:focus {
+  border-color: #FFB347;
+}
+
+.search-input::placeholder {
+  color: #C4A872;
 }
 
 /* 属性筛选 */
@@ -27,21 +37,21 @@
   margin-right: 12rpx;
   font-size: 26rpx;
   border-radius: 20rpx;
-  border: 2rpx solid #e8e8e8;
+  border: 2rpx solid #F0E6D6;
   background: #fff;
-  color: #666;
+  color: #8B7355;
 }
 
 .attr-item.active {
-  background: #667eea;
-  border-color: #667eea;
+  background: #FFB347;
+  border-color: #FFB347;
   color: #fff;
 }
 
 /* 结果统计 */
 .result-info {
   font-size: 24rpx;
-  color: #999;
+  color: #8B7355;
   margin-bottom: 16rpx;
 }
 
@@ -58,19 +68,21 @@
   background: #fff;
   border-radius: 24rpx;
   padding: 24rpx;
-  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, .04);
+  box-shadow: 0 2rpx 12rpx rgba(180, 140, 80, 0.06);
+  border: 2rpx solid rgba(180, 140, 80, 0.05);
 }
 
 .spirit-row:active {
-  background: #f8f9ff;
+  background: #FFFCF7;
+  transform: scale(0.99);
 }
 
 /* 头像 */
 .spirit-avatar {
   width: 96rpx;
   height: 96rpx;
-  border-radius: 20rpx;
-  background: #f8f9ff;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FFF3D6, #FFE8CC);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -103,7 +115,7 @@
 .spirit-name {
   font-size: 30rpx;
   font-weight: 600;
-  color: #333;
+  color: #2D2016;
 }
 
 .attr-icon-small {
@@ -118,14 +130,14 @@
 
 .spirit-no {
   font-size: 22rpx;
-  color: #bbb;
+  color: #C4A872;
   display: block;
   margin-top: 4rpx;
 }
 
 .spirit-range {
   font-size: 22rpx;
-  color: #999;
+  color: #8B7355;
   display: block;
   margin-top: 4rpx;
 }
@@ -133,7 +145,7 @@
 /* 箭头 */
 .arrow {
   font-size: 40rpx;
-  color: #ddd;
+  color: #D0D8E0;
   margin-left: 16rpx;
   flex-shrink: 0;
 }
@@ -143,7 +155,7 @@
   text-align: center;
   padding: 40rpx 0;
   font-size: 24rpx;
-  color: #ccc;
+  color: #C4A872;
 }
 
 /* 错误重试 */
@@ -154,7 +166,7 @@
 
 .error-text {
   font-size: 28rpx;
-  color: #ff6b6b;
+  color: #E74C3C;
   display: block;
   margin-bottom: 20rpx;
 }
@@ -162,7 +174,7 @@
 .retry-btn {
   display: inline-block;
   padding: 16rpx 40rpx;
-  background: #667eea;
+  background: #FFB347;
   color: #fff;
   border-radius: 20rpx;
   font-size: 26rpx;

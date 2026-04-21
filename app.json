@@ -5,15 +5,15 @@
     "pages/detail/detail"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#667eea",
+    "navigationBarBackgroundColor": "#FFB347",
     "navigationBarTitleText": "孵蛋查询",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#e8f0fe"
+    "backgroundColor": "#FFF8EE"
   },
   "tabBar": {
-    "color": "#999",
-    "selectedColor": "#667eea",
-    "backgroundColor": "#fff",
+    "color": "#C4A872",
+    "selectedColor": "#FF8C42",
+    "backgroundColor": "#FFFCF7",
     "borderStyle": "white",
     "list": [
       {
