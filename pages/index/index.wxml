@@ -68,7 +68,7 @@
       <view class="pet-card" wx:for="{{filteredResults}}" wx:key="name"
             bindtap="goDetail" data-spirit-id="{{item.spirit_id}}">
         <view class="pet-icon-wrap" style="background: {{item.egg_type_color || '#f0f0ff'}}">
-          <image class="pet-icon" src="{{item.image}}" mode="aspectFit"
+          <image class="pet-icon" src="{{item.image}}" mode="aspectFit" lazy-load="{{true}}"
                  wx:if="{{item.image}}" />
           <text class="pet-emoji" wx:else>{{item.egg_type_icon || '🥚'}}</text>
         </view>

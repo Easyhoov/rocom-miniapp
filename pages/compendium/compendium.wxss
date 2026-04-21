@@ -145,3 +145,25 @@
   font-size: 24rpx;
   color: #ccc;
 }
+
+/* 错误重试 */
+.error-retry {
+  text-align: center;
+  padding: 40rpx 0;
+}
+
+.error-text {
+  font-size: 28rpx;
+  color: #ff6b6b;
+  display: block;
+  margin-bottom: 20rpx;
+}
+
+.retry-btn {
+  display: inline-block;
+  padding: 16rpx 40rpx;
+  background: #667eea;
+  color: #fff;
+  border-radius: 20rpx;
+  font-size: 26rpx;
+}

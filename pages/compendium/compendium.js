@@ -13,6 +13,7 @@ Page({
     total: 0,
     totalPages: 0,
     loading: false,
+    loadError: false,
     hasMore: true,
     attributes: ATTRIBUTES
   },
@@ -49,7 +50,7 @@ Page({
   async loadMore() {
     if (this.data.loading || !this.data.hasMore) return
 
-    this.setData({ loading: true })
+    this.setData({ loading: true, loadError: false })
 
     try {
       const res = await getSpirits({
@@ -77,6 +78,7 @@ Page({
       })
     } catch (err) {
       console.error('[Compendium] 加载失败:', err)
+      this.setData({ loadError: true })
     } finally {
       this.setData({ loading: false })
     }

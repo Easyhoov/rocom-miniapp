@@ -1,8 +1,19 @@
 {
+  "desc": "洛克王国孵蛋查询小程序",
   "rules": [
     {
       "action": "allow",
-      "page": "*"
+      "page": "pages/index/index",
+      "query": "洛克王国,孵蛋,查询,精灵,身高,体重,R值"
+    },
+    {
+      "action": "allow",
+      "page": "pages/compendium/compendium",
+      "query": "图鉴,精灵,洛克王国"
+    },
+    {
+      "action": "allow",
+      "page": "pages/detail/detail"
     }
   ]
 }

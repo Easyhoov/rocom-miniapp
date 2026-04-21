@@ -81,7 +81,7 @@
       <view class="evo-chain">
         <view class="evo-item" wx:for="{{spirit.evolution_chain}}" wx:key="spirit_id"
               bindtap="goEvolution" data-id="{{item.spirit_id}}">
-          <image class="evo-img" src="{{item.image}}" mode="aspectFit" wx:if="{{item.image}}" />
+          <image class="evo-img" src="{{item.image}}" mode="aspectFit" lazy-load="{{true}}" wx:if="{{item.image}}" />
           <text class="evo-name">{{item.display_name || item.base_name}}</text>
           <text class="evo-level" wx:if="{{item.evolution_level_text}}">
             {{item.evolution_level_text}}
