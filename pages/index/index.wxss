@@ -112,18 +112,23 @@
 /* 结果网格 — 2列 */
 .result-grid {
   display: flex;
+  flex-direction: row;
   flex-wrap: wrap;
-  gap: 16rpx;
 }
 
 .pet-card {
-  width: calc(50% - 8rpx);
+  width: calc(50% - 10rpx);
   background: #f8f9ff;
   border-radius: 24rpx;
   padding: 24rpx 16rpx 20rpx;
   text-align: center;
   border: 3rpx solid transparent;
-  transition: 0.15s;
+  box-sizing: border-box;
+  margin-bottom: 16rpx;
+}
+
+.pet-card:nth-child(odd) {
+  margin-right: 16rpx;
 }
 
 .pet-card:active {
