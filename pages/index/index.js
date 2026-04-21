@@ -48,6 +48,11 @@ Page({
     this.setData({ height: String(h), weight: String(w) })
   },
 
+  // 跳转图鉴
+  goCompendium() {
+    wx.switchTab({ url: '/pages/compendium/compendium' })
+  },
+
   // 结果 tab 切换
   setResultTab(e) {
     const tab = e.currentTarget.dataset.tab

@@ -1,30 +1,49 @@
 <!--pages/index/index.wxml-->
 <view class="page">
-  <!-- 头部 — 温暖游戏感 -->
+  <!-- 头部 — 游戏风格 -->
   <view class="header">
-    <view class="header-badge">🥚 洛克王国</view>
-    <text class="title">孵蛋查询</text>
-    <text class="subtitle">输入身高体重 · 一键查可孵精灵</text>
+    <view class="header-title-row">
+      <text class="header-title">洛克手册</text>
+      <text class="header-sub">孵蛋查询工具</text>
+    </view>
   </view>
 
-  <!-- 输入卡片 -->
-  <view class="card input-card {{shake ? 'shake' : ''}}">
+  <!-- 功能入口卡片 — 借鉴洛克手册的大入口 -->
+  <view class="feature-card card">
+    <view class="feature-main" bindtap="goCompendium">
+      <view class="feature-icon-large">📖</view>
+      <view class="feature-text">
+        <text class="feature-name">精灵图鉴</text>
+        <text class="feature-desc">468只精灵数据查询</text>
+      </view>
+      <text class="feature-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 孵蛋查询卡片 -->
+  <view class="card egg-card {{shake ? 'shake' : ''}}">
+    <view class="egg-card-header">
+      <text class="egg-card-icon">🥚</text>
+      <text class="egg-card-title">孵蛋查询</text>
+      <text class="egg-card-desc">输入身高体重 · 一键查可孵精灵</text>
+    </view>
+
     <view class="input-row">
       <view class="input-group">
-        <text class="label">📏 身高 (m)</text>
+        <text class="input-label">📏 身高 (m)</text>
         <input class="input" type="digit" placeholder="0.24" value="{{height}}"
                bindinput="onHeightInput" />
       </view>
       <view class="input-group">
-        <text class="label">⚖️ 体重 (kg)</text>
+        <text class="input-label">⚖️ 体重 (kg)</text>
         <input class="input" type="digit" placeholder="1.600" value="{{weight}}"
                bindinput="onWeightInput" />
       </view>
     </view>
 
-    <!-- 快捷填参 — 借鉴灵蛋所 -->
+    <!-- 快捷填参 -->
     <view class="quick-fill">
-      <text class="quick-label">示例快填：</text>
+      <text class="quick-label">示例快填</text>
       <view class="quick-btn" bindtap="quickFill" data-h="0.24" data-w="1.6">圆眼蜘蛛</view>
       <view class="quick-btn" bindtap="quickFill" data-h="0.27" data-w="1.55">喵喵</view>
       <view class="quick-btn" bindtap="quickFill" data-h="0.28" data-w="2.36">迪莫</view>
@@ -43,12 +62,8 @@
       </view>
     </view>
 
-    <!-- R值提示 -->
-    <view class="r-tip-box">
-      <text class="r-tip-text">💡 R值 = 体重 ÷ 身高 · 差值越小匹配越高</text>
-    </view>
+    <view class="r-tip">💡 R值 = 体重 ÷ 身高 · 差值越小匹配越高</view>
 
-    <!-- 查询按钮 -->
     <button class="btn-primary" bindtap="doQuery" disabled="{{loading}}">
       {{loading ? '🔮 查询中...' : '🔮 开始查询'}}
     </button>
@@ -56,7 +71,11 @@
 
   <!-- 结果区域 -->
   <view class="card result-card" wx:if="{{queried}}">
-    <!-- 结果 tab -->
+    <view class="result-header">
+      <text class="result-title">查询结果</text>
+      <text class="result-count">共 {{total}} 只</text>
+    </view>
+
     <view class="tabs">
       <view class="tab {{resultTab === 'all' ? 'on' : ''}}" bindtap="setResultTab" data-tab="all">
         全部 <text class="tab-n">{{total}}</text>
@@ -69,37 +88,33 @@
       </view>
     </view>
 
-    <!-- R 值 -->
-    <view class="r-display">你的 R 值: {{userR}}</view>
+    <view class="r-display">⭐ 你的 R 值: {{userR}}</view>
 
     <!-- 结果网格 -->
     <view class="result-grid" wx:if="{{filteredResults.length > 0}}">
       <view class="pet-card" wx:for="{{filteredResults}}" wx:key="name"
             bindtap="goDetail" data-spirit-id="{{item.spirit_id}}">
-        <view class="pet-icon-wrap" style="background: {{item.egg_type_color || '#FFB347'}}">
-          <image class="pet-icon" src="{{item.image}}" mode="aspectFit"
+        <view class="pet-icon" style="background: {{item.egg_type_color || '#FFB347'}}">
+          <image class="pet-img" src="{{item.image}}" mode="aspectFit"
                  lazy-load="{{true}}" wx:if="{{item.image}}" />
-          <text class="pet-emoji" wx:else>{{item.egg_type_icon || '🥚'}}</text>
+          <text wx:else>{{item.egg_type_icon || '🥚'}}</text>
         </view>
         <text class="pet-name">{{item.name}}</text>
-        <view class="pet-tier-row">
-          <text class="pet-r-diff">R差 {{item.r_diff}}</text>
-          <text class="pet-tier {{item.match_tier}}">
+        <view class="pet-meta">
+          <text class="pet-rdiff">R差{{item.r_diff}}</text>
+          <text class="pet-pct {{item.match_tier}}">
             {{item.match_tier === 'exact' ? '✨完美' : item.probability + '%'}}
           </text>
         </view>
       </view>
     </view>
 
-    <!-- 空结果 -->
     <view class="empty" wx:elif="{{queried}}">
       <text class="empty-icon">🐣</text>
       <text class="empty-text">暂无匹配结果</text>
-      <text class="empty-hint">试试调整身高体重或筛选条件</text>
     </view>
   </view>
 
-  <!-- 页脚 -->
   <view class="footer">
     <text class="footer-text">数据来源 RocomUID</text>
   </view>
